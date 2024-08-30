@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: rgb(226, 71, 71);
+    color: white;
+  }
+
