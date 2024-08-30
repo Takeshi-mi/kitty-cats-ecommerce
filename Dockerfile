@@ -40,17 +40,17 @@ RUN pecl install -o -f redis \
 WORKDIR /var/www
 
 
-RUN cp .env.example .env
+# RUN cp .env.example .env
 
-# Baixar dependẽncias
-RUN composer install
-RUN npm install
+# # Baixar dependẽncias
+# RUN composer install
+# RUN npm install
 
-# Gerar chave do projeto
-RUN php artisan key:generate
+# # Gerar chave do projeto
+# RUN php artisan key:generate
 
-# Migrations das tabelas
-RUN php artisan migrate
+# # Migrations das tabelas
+# RUN php artisan migrate
 
 # Copy custom configurations PHP
 COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
