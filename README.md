@@ -21,7 +21,7 @@ Para executar este projeto, você precisará ter os seguintes softwares instalad
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/Takeshi-mi/kitty-cat-ecommerce.git kitty-cats
+git clone https://github.com/Takeshi-mi/kitty-cats-ecommerce.git kitty-cats
 ```
 ```sh
 cd app-laravel
