@@ -9,24 +9,25 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-{
-    Schema::create('produtos', function (Blueprint $table) {
-        $table->id();  // Chave primária
-        $table->string('nome');
-        $table->decimal('preco', 10, 2);  // Preço com até 10 dígitos e 2 casas decimais
-        $table->text('descricao')->nullable();  // Descrição opcional
-         // Chave estrangeira referenciando o Admin que criou o produto
-        $table->unsignedBigInteger('admin_id');
-        $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
-        
-        $table->timestamps();  // Colunas de timestamps
-    });
-}
+    public function up(): void
+    {
+        Schema::create('produtos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->text('descricao');
+            $table->string('url_imagem')->default('')->nullable(); // para adicionar a imagem 
+            $table->decimal('preco', 8, 2);
+            $table->foreignId('criado_por')->constrained('users')->onDelete('cascade'); // Relacionado ao admin (user)
+            $table->timestamps();
+        });
+    }
 
-public function down()
-{
-    Schema::dropIfExists('produtos');
-}
-
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('produtos');
+    }
 };
+

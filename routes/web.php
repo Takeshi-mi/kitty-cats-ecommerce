@@ -1,29 +1,39 @@
 <?php
 
-use App\Http\Controllers\NoticiasController;
+use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-/*Route::get('/', function () {
-    return view('home');
-}); */
-Route::get('/', [NoticiasController::class, 'home'])->name('home'); //serve para listar as noticias
-Route::resource('noticias', NoticiasController::class); //serve para criar, editar, deletar e listar noticias
+// Rota para a página inicial que lista os produtos
+Route::get('/', [ProdutosController::class, 'home'])->name('home');
 
-Route::get('/dashboard', [NoticiasController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard'); //serve para listar as noticias
-Route::get('/noticias/{noticia}', [NoticiasController::class, 'show'])->name('noticias.show'); //serve para mostrar uma noticia
-Route::put('/noticias/{noticia}', [NoticiasController::class, 'update'])->name('noticias.update'); //serve para atualizar uma noticia
-Route::get('/search', [NoticiasController::class, 'search'])->name('noticias.search-results'); //pesquisar notícia com algolia
+// CRUD de produtos
+Route::resource('produtos', ProdutosController::class); // serve para criar, editar, deletar e listar produtos
 
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');*/
+// Rota para a página de administração do dashboard de produtos
+Route::get('/dashboard', [ProdutosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+// Rota para mostrar detalhes de um produto específico
+Route::get('/produtos/{produto}', [ProdutosController::class, 'show'])->name('produtos.show');
+
+// Rota para atualizar um produto específico
+Route::put('/produtos/{produto}', [ProdutosController::class, 'update'])->name('produtos.update');
+
+// Rota para pesquisa de produtos usando Algolia ou qualquer outro método
+Route::get('/search', [ProdutosController::class, 'search'])->name('produtos.search');
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit'); //serve para editar o perfil
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update'); //serve para atualizar o perfil
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); //serve para deletar o perfil
+    // Outras rotas que precisam de autenticação
+});
+
+// Rotas para o perfil do usuário
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit'); // serve para editar o perfil
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update'); // serve para atualizar o perfil
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); // serve para deletar o perfil
+    Route::resource('produtos', ProdutosController::class);
 });
 
 require __DIR__.'/auth.php';

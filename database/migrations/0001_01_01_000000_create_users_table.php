@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->enum('papel', ['admin', 'cliente'])->default('cliente'); // Definir o papeis pra usar o gate, igual a sara estudou pra task dela pro projeto
             $table->timestamps();
         });
 

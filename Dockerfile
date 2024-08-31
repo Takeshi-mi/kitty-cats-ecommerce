@@ -48,7 +48,6 @@ WORKDIR /var/www
 
 # # Gerar chave do projeto
 # RUN php artisan key:generate
-
 # # Migrations das tabelas
 # RUN php artisan migrate
 

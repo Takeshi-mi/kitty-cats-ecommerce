@@ -19,13 +19,14 @@
         <form action="{{ route('noticias.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" name="titulo" id="titulo">
+                <label for="nome">Titulo</label>
+                <input type="text" class="form-control" name="nome" id="nome">
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
                 <textarea class="form-control" name="descricao" id="descricao"></textarea>
             </div>
+
             <div class="form-group">
                 <label for="url">Arquivo</label>
                 <input type="file" class="form-control" name="arquivo" id="arquivo">

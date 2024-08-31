@@ -9,19 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-{
-    Schema::create('pedidos', function (Blueprint $table) {
-        $table->id();  // Chave primária
-        $table->date('data_pedido');  // Data do pedido
-        $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');  // Chave estrangeira para clientes
-        $table->timestamps();  // Colunas de timestamps
-    });
-}
+    public function up(): void
+    {
+        Schema::create('pedidos', function (Blueprint $table) {
+            $table->id(); // Chave primária da tabela 'pedidos'
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Chave estrangeira para o cliente que fez o pedido
+            $table->decimal('valor_total', 8, 2); // Valor total do pedido com 8 dígitos, 2 decimais
+            $table->timestamps(); // Campos 'created_at' e 'updated_at'
+        });
+    }
 
-public function down()
-{
-    Schema::dropIfExists('pedidos');
-}
-
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('pedidos'); // Deleta a tabela 'pedidos' se necessário
+    }
 };
