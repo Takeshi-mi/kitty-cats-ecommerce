@@ -55,23 +55,39 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <h1>Todos os Produtos</h1>
-                            @foreach ($produtos as $produto)
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        @if ($produto->url_imagem)
-                                            <img src="{{ $produto->url_imagem }}" alt="{{ $produto->nome }}" class="card-img-top">
-                                        @endif
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $produto->nome }}</h5>
-                                            <p class="card-text">{{ $produto->descricao }}</p>
-                                            <p class="card-text"><strong>Preço:</strong> R$ {{ number_format($produto->preco, 2, ',', '.') }}</p>
+                    <div class="row">
+                        <h1>Produtos em destaque</h1>
+                        @foreach ($noticias as $noticia)
+                        <div class="col-md-4">
+                            <div class="card">
+                                @if ($noticia->url)
+                                <img src="{{ asset($noticia->url) }}" alt="{{ $noticia->titulo }}"
+                                    class="">
+                                @endif
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $noticia->titulo }}</h5>
+
+                                    <p class="card-text">{{ $noticia->descricao }}</p>
+                                    <h5 class="card-title"><strong>R$1.200,00</strong></h5>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex">
+                                        <div class="br-magic-button medium">
+                                            <button class="br-button" type="button">Compre agora
+                                            </button>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <div class="br-magic-button">
+                                                <button class="br-button circle" type="button" aria-label="Adicionar"><i class="fas fa-cart-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
+                        @endforeach
+                    </div>
                     @endif
                 </div>
             </div>
