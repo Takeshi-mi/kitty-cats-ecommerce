@@ -14,16 +14,18 @@
             </div>
             <button type="submit" class="br-button primary">Filtrar</button>
             <a href="{{ route('dashboard') }}" class="br-button secondary">Limpar Filtros</a>
+            
         </form>
     </div>
 
     <div class="container">
         <h1>Produtos</h1>
         <a href="{{ route('produtos.create') }}" class="br-button primary">Criar Produto</a>
+        <a href="{{ route('relatorio') }}" class="br-button secondary">Relatório de pedidos</a>
         @if ($message = Session::get('success'))
-            <div class="alert alert-success mt-2">
-                <p>{{ $message }}</p>
-            </div>
+        <div class="alert alert-success mt-2">
+            <p>{{ $message }}</p>
+        </div>
         @endif
 
         @if($produtos->count())
@@ -79,7 +81,7 @@
         </div>
 
         @else
-            <p>Nenhum produto cadastrado</p>
+        <p>Nenhum produto cadastrado</p>
         @endif
     </div>
 </x-app-layout>
