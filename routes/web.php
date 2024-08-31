@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 
 // Rota para a página inicial que lista os produtos
@@ -35,5 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); // serve para deletar o perfil
     Route::resource('produtos', ProdutosController::class);
 });
+
+Route::get('/generate-pdf', [PdfController::class, 'generatepdf'])->name('relatorio');
 
 require __DIR__.'/auth.php';
