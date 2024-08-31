@@ -57,18 +57,17 @@
 
                     <div class="row">
                         <h1>Produtos em destaque</h1>
-                        @foreach ($noticias as $noticia)
+                        @foreach ($produtos as $produto)
                         <div class="col-md-4">
                             <div class="card">
-                                @if ($noticia->url)
-                                <img src="{{ asset($noticia->url) }}" alt="{{ $noticia->titulo }}"
-                                    class="">
+                                @if ( $produto->url_imagem )
+                                <img src="{{ asset($produto->url_imagem) }}" alt="{{ $produto->nome }}" />
                                 @endif
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $noticia->titulo }}</h5>
+                                    <h5 class="card-title">{{ $produto->nome }}</h5>
 
-                                    <p class="card-text">{{ $noticia->descricao }}</p>
-                                    <h5 class="card-title"><strong>R$1.200,00</strong></h5>
+                                    <p class="card-text">{{ $produto->descricao }}</p>
+                                    <h5 class="card-title"><strong>{{ $produto->preco }}</strong></h5>
                                 </div>
                                 <div class="card-footer">
                                     <div class="d-flex">
