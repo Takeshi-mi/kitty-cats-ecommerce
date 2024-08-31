@@ -19,6 +19,7 @@ class Produto extends Model
         'preco',
         'url_imagem',
         'criado_por', // Campo para armazenar o ID do usuário que criou o produto
+        'categoria_id', // Campo para armazenar o ID da categoria do produto'
     ];
 
     // Query Scopes para filtros personalizados
@@ -66,5 +67,10 @@ class Produto extends Model
     public function usuario()
     {
         return $this->belongsTo(User::class, 'criado_por');
+    }
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
     }
 }

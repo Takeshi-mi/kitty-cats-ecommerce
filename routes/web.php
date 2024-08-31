@@ -4,6 +4,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarrinhoController;
 
 // Rota para a página inicial que lista os produtos
 Route::get('/', [ProdutosController::class, 'home'])->name('home');
@@ -22,6 +23,30 @@ Route::put('/produtos/{produto}', [ProdutosController::class, 'update'])->name('
 
 // Rota para pesquisa de produtos usando Algolia ou qualquer outro método
 Route::get('/search', [ProdutosController::class, 'search'])->name('produtos.search');
+
+// Exibe o carrinho de compras
+Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+
+// Adiciona um produto ao carrinho
+Route::post('/carrinho/comprar/{id}', [CarrinhoController::class, 'comprar'])->name('carrinho.comprar');
+
+// Adiciona um produto ao carrinho
+Route::post('/carrinho/adicionar/{id}', [CarrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
+
+// Atualiza a quantidade de um produto no carrinho
+Route::put('/carrinho/atualizar/{id}', [CarrinhoController::class, 'atualizar'])->name('carrinho.atualizar');
+
+// Remove um produto do carrinho
+Route::delete('/carrinho/remover/{id}', [CarrinhoController::class, 'remover'])->name('carrinho.remover');
+
+// Limpa o carrinho
+Route::delete('/limpar', [CarrinhoController::class, 'limpar'])->name('carrinho.limpar');
+
+// Redireciona para a tela de pagamento
+Route::get('/pagamento', [CarrinhoController::class, 'pagamento'])->name('pagamento');
+
+
+
 
 
 Route::middleware('auth')->group(function () {

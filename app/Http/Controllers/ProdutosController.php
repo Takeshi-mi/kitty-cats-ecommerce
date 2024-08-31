@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,20 +25,22 @@ class ProdutosController extends Controller
     public function index()
     {
         $produtos = Produto::all();
+        $categorias = Categoria::all();
         $filters = request()->only('title', 'description');
         $produtos = Produto::filter($filters)->paginate(10)->withQueryString();
-        return view('dashboard', compact('produtos'));
+        return view('dashboard', compact('produtos','categorias'));
     }
 
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        // Retorna a view para criar um novo produto
-        return view('produtos.create');
-    }
+
+     public function create()
+{
+    $categorias = Categoria::all();
+    return view('produtos.create', compact('categorias'));
+}
 
     /**
      * Store a newly created resource in storage.
@@ -54,6 +57,7 @@ class ProdutosController extends Controller
             'descricao' => 'required|string',
             'preco' => 'required|numeric|min:0',
             'url_imagem' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:6144',
+            'categoria_id' => 'required|exists:categorias,id',
         ]);
 
         // Cria um novo produto
@@ -62,6 +66,7 @@ class ProdutosController extends Controller
             'descricao' => $request->descricao,
             'preco' => $request->preco,
             'criado_por' => auth()->id(), // Associa o produto ao usuário autenticado
+            'categoria_id' => $request->categoria_id, // Recupera o ID da categoria do formulário
         ]);
         $produto->storeImagem($request->file('url_imagem'));
 
@@ -78,18 +83,12 @@ class ProdutosController extends Controller
         return view('produtos.show', compact('produto'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Produto $produto)
     {
-        // Retorna a view para editar um produto existente
-        return view('produtos.edit', compact('produto'));
+        $categorias = Categoria::all();
+        return view('produtos.edit', compact('produto', 'categorias'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, Produto $produto)
     {
         // Valida os dados do formulário
@@ -98,12 +97,14 @@ class ProdutosController extends Controller
             'descricao' => 'required|string',
             'preco' => 'required|numeric|min:0',
             'url_imagem' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:6144',
+            'categoria_id' => 'required|',
         ]);
 
         // Atualiza os dados do produto
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
         $produto->preco = $request->preco;
+        $produto->categoria = $request->categoria;
         
         if($request->file('url_imagem')){
             $produto->storeImagem($request->file('url_imagem'));

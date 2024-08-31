@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('url_imagem')->default('')->nullable(); // para adicionar a imagem 
             $table->decimal('preco', 8, 2);
             $table->foreignId('criado_por')->constrained('users')->onDelete('cascade'); // Relacionado ao admin (user)
+            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade'); // Relacionado a categoria
             $table->timestamps();
         });
     }

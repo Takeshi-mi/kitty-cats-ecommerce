@@ -36,7 +36,14 @@
                     <label class="mt-4 pt-3"  for="preco">R$</label>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label for="categoria_id">Categoria</label>
+                <select name="categoria_id" id="categoria_id" class="form-control" required>
+                    @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                    @endforeach
+                </select>
+            </div>            
             <div class="form-group">
                 <label for="arquivo">Imagem</label>
                 <input type="file" class="form-control" name="url_imagem" id="arquivo">
