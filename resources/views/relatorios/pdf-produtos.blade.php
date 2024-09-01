@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Levantamento de Produtos</title>
 </head>
 
 <body>
+    <table class="container">
+        <tr>
+            <th>
+                <img src="{{ public_path('img/logo-cat.png') }}" alt="Kitty Cats logo" width="100"/>
+            </th>
+            <td>
+                <h2>Kitty Cats ID: 3285829320</h2>
+            </td>
+        
+        </tr>
+    </table>
+
     @if($produtos->count())
         <table class="table table-bordered mt-2">
             <thead>
@@ -17,7 +29,6 @@
                     <th>Descrição</th>
                     <th>Preço</th>
                     <th>Imagem</th>
-                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,9 +52,6 @@
             </tbody>
         </table>
 
-        <div>
-            {{ $produtos->links() }}
-        </div>
     @endif
 
 </body>

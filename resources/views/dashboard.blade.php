@@ -51,10 +51,10 @@
                             <td>{{ $produto->descricao }}</td>
                             <td>{{ $produto->preco }}</td>
                             <td>
-                                <div class="d-flex align-items-center"><span class="br-tag bg-mint-cool-vivid-70"
+                                {{-- <div class="d-flex align-items-center"><span class="br-tag bg-mint-cool-vivid-70"
                                         aria-describedby="tag-text01"><i class="fas fa-tag" aria-hidden="true"></i><span
                                             id="tag-text01"> {{ $produto->categoria->nome }} </span></span>
-                                </div>
+                                </div> --}}
                             </td>
                             <td>
                                 @if ($produto->url_imagem)
