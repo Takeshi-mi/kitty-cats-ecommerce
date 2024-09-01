@@ -1,18 +1,23 @@
   <div class="row bg-white">
       <div class="col-3 py-2 mt-2 text-center">
+        <a href="{{route('home')}}" class="text-decoration-none">
           <h2 class="text-black mt-4">Kitty Cats</h2>
-      </div>
+        </a>
+        </div>
       <div class="col-3 py-2 mt-2">
           <div class="d-inline-block m-4 p-2"><a class="text-black text-decoration-none" href="#em-destaque">PRODUTOS EM DESTAQUE</a></div>
           <div class="d-inline-block m-4 p-2"><a class="text-black text-decoration-none" href="#categorias">CATEGORIAS</a></div>
       </div>
+
       <div class="col-3 py-2 mt-4 header-search">
+        <form method="GET" action="{{ route('produtos.search') }}" class="form-inline">
           <div class="br-input has-icon">
-              <input id="searchbox-81282" type="text" placeholder="O que você procura?" />
-              <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" style="color: #000000;" aria-hidden="true"></i>
+              <input id="query" value="{{ request('query')}}" type="text" placeholder="O que você procura?" />
+              <button class="br-button circle small" type="submit" aria-label="Pesquisar"><i class="fas fa-search" style="color: #000000;" aria-hidden="true"></i>
               </button>
           </div>
       </div>
+
       @if (Route::has('login'))
       <div class="col-2 align-self-center">
           <nav class="-mx-3 flex flex-1 justify-end">
