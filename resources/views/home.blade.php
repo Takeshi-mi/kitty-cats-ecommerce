@@ -4,12 +4,18 @@
             {{ __('Página de Produtos') }}
         </h2>
     </x-slot>
-
+    <div class="container-fluid bg-blue-70">
+        <div class="img-fluid">
+            <img src="/img/cat-notebook.png" alt="Banner de gato"/>
+        </div>
+        IMAGE
+    </div>
     <div class="container py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-200">
-                    <h1 class="font-semibold">Produtos em Destaque</h1>
+        000<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            111<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+               222 <div class="p-6 text-gray-900 dark:text-gray-200">
+                  333  <h1 id="produtos" class="font-semibold">Miau dia!</h1>
+                    <h5>A vida é melhor com um gatinho ao lado.</h5>
                     @if ($produtos->isEmpty())
                         <p>Não há produtos disponíveis no momento.</p>
                     @else
@@ -47,8 +53,8 @@
                                                         aria-setsize="{{ count($produtos) }}" type="button">
                                                         <span class="step-info">{{ $produto->nome }}</span>
                                                     </button>
-                                                @endforeach
-                                            </div>
+                                                    @endforeach
+                                                </div>
                                         </nav>
                                     </div>
                                 </div>
@@ -56,16 +62,18 @@
                         </div>
 
                     <div class="row">
-                        <h1>Produtos em destaque</h1>
+                        <h1 id="em-destaque">Produtos em destaque</h1>
                         @foreach ($produtos as $produto)
                         <div class="col-md-4">
                             <div class="card">
                                 @if ( $produto->url_imagem )
-                                <img src="{{ asset($produto->url_imagem) }}" alt="{{ $produto->nome }}" />
+                                <a href="{{ route('produtos.show', $produto->id) }}">
+                                    <img src="{{ asset($produto->url_imagem) }}" alt="{{ $produto->nome }}" />
+                                </a>
                                 @endif
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $produto->nome }}</h5>
-
+                                    
                                     <p class="card-text">{{ $produto->descricao }}</p>
                                     <h5 class="card-title"><strong>{{ $produto->preco }}</strong></h5>
                                 </div>

@@ -3,8 +3,8 @@
           <h2 class="text-black mt-4">Kitty Cats</h2>
       </div>
       <div class="col-3 py-2 mt-2">
-          <div class="d-inline-block m-4 p-2"><a class="text-black text-decoration-none" href="#">LINK 1</a></div>
-          <div class="d-inline-block m-4 p-2"><a class="text-black text-decoration-none" href="#">LINK 2</a></div>
+          <div class="d-inline-block m-4 p-2"><a class="text-black text-decoration-none" href="#em-destaque">PRODUTOS EM DESTAQUE</a></div>
+          <div class="d-inline-block m-4 p-2"><a class="text-black text-decoration-none" href="#categorias">CATEGORIAS</a></div>
       </div>
       <div class="col-3 py-2 mt-4 header-search">
           <div class="br-input has-icon">

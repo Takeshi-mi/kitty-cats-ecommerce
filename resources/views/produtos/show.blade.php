@@ -11,16 +11,26 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                         <div class="text-2xl">
-                            {{ $produto->titulo }}
+                            {{ $produto->nome }}
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="br-tag bg-mint-cool-vivid-70" aria-describedby="tag-text01">
+                                <i class="fas fa-tag" aria-hidden="true"></i>
+                                <span id="tag-text01"> {{ $produto->categoria->nome }}
+                                </span>
+                            </span>
                         </div>
 
                         <div class="mt-4 text-gray-500">
                             {{ $produto->descricao }}
                         </div>
-
-                        <div class="mt-6">
-                           @if($produto->url)
-                                <img src="{{ asset($produto->url) }}" alt="{{ $produto->titulo }}" class="max-w-full h-auto">
+                        <div class="mt-4 text-gray-500">
+                            R${{ $produto->preco }}
+                        </div>      
+                        <div class="img-fluid">
+                            @if ($produto->url_imagem)
+                                <img src="{{ asset($produto->url_imagem) }}" alt="{{ $produto->nome }}"
+                                    class="max-w-full h-auto">
                             @endif
                         </div>
                     </div>

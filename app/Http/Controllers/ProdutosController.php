@@ -132,7 +132,7 @@ class ProdutosController extends Controller
     public function search(Request $request)
     {
         // Obtém o termo de busca
-        $query = $request->input('%'.'query'.'%');
+        $query = $request->input('query');
         $produtos = Produto::search($query)->get();
 
         return view('produtos.search-results', compact('produtos'));
