@@ -6,15 +6,14 @@
     </x-slot>
     <div class="container-fluid bg-blue-70">
         <div class="img-fluid">
-            <img src="/img/cat-notebook.png" alt="Banner de gato"/>
+            <img src="/img/cat-notebook.png" alt="Banner de gato" />
         </div>
-        IMAGE
     </div>
     <div class="container py-12">
         000<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             111<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-               222 <div class="p-6 text-gray-900 dark:text-gray-200">
-                  333  <h1 id="produtos" class="font-semibold">Miau dia!</h1>
+                222 <div class="p-6 text-gray-900 dark:text-gray-200">
+                    333 <h1 id="produtos" class="font-semibold">Miau dia!</h1>
                     <h5>A vida é melhor com um gatinho ao lado.</h5>
                     @if ($produtos->isEmpty())
                         <p>Não há produtos disponíveis no momento.</p>
@@ -30,8 +29,8 @@
                                     </div>
                                     <div class="carousel-stage">
                                         @foreach ($produtos as $produto)
-                                            <div class="carousel-page" role="group"
-                                                aria-roledescription="slide" aria-live="polite">
+                                            <div class="carousel-page" role="group" aria-roledescription="slide"
+                                                aria-live="polite">
                                                 <h3>{{ $produto->nome }}</h3>
                                                 <div class="carousel-content bg-blue-10">
                                                     <img src="{{ $produto->url_imagem }}" alt="{{ $produto->nome }}" />
@@ -49,55 +48,64 @@
                                             <div class="step-progress" role="listbox" aria-orientation="horizontal"
                                                 aria-label="Lista de Opções">
                                                 @foreach ($produtos as $index => $produto)
-                                                    <button class="step-progress-btn" role="option" aria-posinset="{{ $index + 1 }}"
+                                                    <button class="step-progress-btn" role="option"
+                                                        aria-posinset="{{ $index + 1 }}"
                                                         aria-setsize="{{ count($produtos) }}" type="button">
                                                         <span class="step-info">{{ $produto->nome }}</span>
                                                     </button>
-                                                    @endforeach
-                                                </div>
+                                                @endforeach
+                                            </div>
                                         </nav>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    <div class="row">
-                        <h1 id="em-destaque">Produtos em destaque</h1>
-                        @foreach ($produtos as $produto)
-                        <div class="col-md-4">
-                            <div class="card">
-                                @if ( $produto->url_imagem )
-                                <a href="{{ route('produtos.show', $produto->id) }}">
-                                    <img src="{{ asset($produto->url_imagem) }}" alt="{{ $produto->nome }}" />
-                                </a>
-                                @endif
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $produto->nome }}</h5>
-                                    
-                                    <p class="card-text">{{ $produto->descricao }}</p>
-                                    <h5 class="card-title"><strong>{{ $produto->preco }}</strong></h5>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="d-flex">
-                                        <div class="br-magic-button medium">
-                                            <button class="br-button" type="button">Compre agora
-                                            </button>
+                        <div class="row">
+                            <h1 id="em-destaque">Produtos em destaque</h1>
+                            @foreach ($produtos as $produto)
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        @if ($produto->url_imagem)
+                                            <a href="{{ route('produtos.show', $produto->id) }}">
+                                                <img src="{{ asset($produto->url_imagem) }}"
+                                                    alt="{{ $produto->nome }}" />
+                                            </a>
+                                        @endif
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $produto->nome }}</h5>
+
+                                            <p class="card-text">{{ $produto->descricao }}</p>
+                                            <h5 class="card-title"><strong>{{ $produto->preco }}</strong></h5>
                                         </div>
-                                        <div class="ml-auto">
-                                            <div class="br-magic-button">
-                                                <button class="br-button circle" type="button" aria-label="Adicionar"><i class="fas fa-cart-plus" aria-hidden="true"></i>
-                                                </button>
+                                        <div class="card-footer">
+                                            <div class="d-flex">
+                                                <div class="br-magic-button medium">
+                                                    <button class="br-button" type="button">Compre agora
+                                                    </button>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <div class="br-magic-button">
+                                                        <button class="br-button circle" type="button"
+                                                            aria-label="Adicionar"><i class="fas fa-cart-plus"
+                                                                aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
+                            @endforeach
+                        </div> <!-- row -->
                     @endif
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- container -->
+    <div class="container">
+        <h1 id="categorias" class="text-center">CATEGORIAS</h1>
+        <div class="img-fluid">
+                <img src="/img/categorias-frame.svg" alt="banner de categoria" />
+        </div>
 </x-app-layout>
