@@ -18,6 +18,7 @@
               <button class="br-button circle small" type="submit" aria-label="Pesquisar"><i class="fas fa-search" style="color: #000000;" aria-hidden="true"></i>
               </button>
           </div>
+        </form>
       </div>
 
       @if (Route::has('login'))

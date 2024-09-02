@@ -24,6 +24,7 @@
                           style="color: #000000;" aria-hidden="true"></i>
                   </button>
               </div>
+          </form>
       </div>
 
       @if (Route::has('login'))
