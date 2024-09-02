@@ -1,0 +1,42 @@
+h2 {
+    margin: 0;
+}
+.container-tb {
+    width: 100%;
+}
+.half-line {
+    width: 50%;
+}
+.margin-top {
+    margin-top: 1.25rem;
+}
+
+table {
+    margin-top: 10px;
+    width: 100%;
+    border-spacing: 0;
+}
+thead.backgroun {
+    font-size: 14pt;
+    background-color: black;
+    color: #ffffff;
+}
+
+thead.backgroun th{
+    padding: 10px;
+}
+
+tbody.colores {
+    font-size: 13pt;
+    background-color: rgb(204, 209, 215);
+    color: black;
+    text-align: center;
+}
+
+tbody.colores td{
+    padding: 7px;
+}
+
+a {
+    color: black; 
+}

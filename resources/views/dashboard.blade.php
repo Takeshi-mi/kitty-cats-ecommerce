@@ -23,7 +23,7 @@
     <div class="container">
         <h1>Produtos</h1>
         <a href="{{ route('produtos.create') }}" class="br-button primary">Criar Produto</a>
-        <a href="{{ route('relatorio') }}" class="br-button secondary">Relatório de pedidos</a>
+        <a href="{{ route('relatorio') }}" class="br-button secondary">Relatório dos Produtos</a>
         @if ($message = Session::get('success'))
             <div class="alert alert-success mt-2">
                 <p>{{ $message }}</p>
@@ -51,10 +51,10 @@
                             <td>{{ $produto->descricao }}</td>
                             <td>{{ $produto->preco }}</td>
                             <td>
-                                {{-- <div class="d-flex align-items-center"><span class="br-tag bg-mint-cool-vivid-70"
+                                <div class="d-flex align-items-center"><span class="br-tag bg-mint-cool-vivid-70"
                                         aria-describedby="tag-text01"><i class="fas fa-tag" aria-hidden="true"></i><span
                                             id="tag-text01"> {{ $produto->categoria->nome }} </span></span>
-                                </div> --}}
+                                </div>
                             </td>
                             <td>
                                 @if ($produto->url_imagem)
