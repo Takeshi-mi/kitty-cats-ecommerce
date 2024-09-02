@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <div class="container mt-5">
+    {{-- <div class="container mt-5">
         <form method="GET" action="{{ route('produtos.search') }}" class="form-inline">
             <div class="br-form-group mb-2">
                 <label for="query" class="sr-only">Buscar</label>
@@ -18,7 +18,7 @@
             <a href="{{ route('dashboard') }}" class="br-button secondary">Limpar Filtros</a>
 
         </form>
-    </div>
+    </div> --}}
 
     <div class="container">
         <h1>Produtos</h1>
