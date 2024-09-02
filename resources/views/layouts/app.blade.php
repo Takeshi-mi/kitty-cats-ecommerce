@@ -17,9 +17,16 @@
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-blue-5">
+        {{-- @if (Route::has('login'))
+            @include('layouts.navigation')
+        @endif --}}
         <header>
-            @include('partials.header')
-        </header>   
+            @if (Route::is('dashboard'))
+                @include('partials.admin.header-admin')
+            @else
+                @include('partials.header')
+            @endif
+        </header>
         <nav>
             @include('partials.menu')
         </nav>
