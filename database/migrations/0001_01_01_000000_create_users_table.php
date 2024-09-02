@@ -40,14 +40,14 @@ return new class extends Migration
             [
                 'name' => 'Admin',
                 'email' => 'admin@admin',
-                'password' => '12345678',
+                'password' =>  Hash::make('password'),
                 'papel' => 'admin',
 
             ],
             [
             'name' => 'Cliente',
             'email' => 'cliente@cliente',
-            'password' => '12345678', 
+            'password' => '12345678',
             'papel' => 'cliente',
             ]
         ]);

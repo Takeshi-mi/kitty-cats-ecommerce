@@ -5,7 +5,7 @@
                 <a href="{{ url()->current() }}" class="br-button secondary">Limpar Filtros</a>
          </div>
     
-
+<h2> Query = {{ request('query')}} </h2>
         @if ($produtos->isNotEmpty())
         <div class="row">
             <h1 class="text-center"    >Resultados da busca</h1>

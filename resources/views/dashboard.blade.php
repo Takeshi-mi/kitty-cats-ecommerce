@@ -23,13 +23,12 @@
     <div class="container">
         <h1>Produtos</h1>
         <a href="{{ route('produtos.create') }}" class="br-button primary">Criar Produto</a>
-        <a href="{{ route('relatorio') }}" class="br-button secondary">Relatório de pedidos</a>
+        <a href="{{ route('relatorio') }}" class="br-button secondary">Relatório de produtos</a>
         @if ($message = Session::get('success'))
             <div class="alert alert-success mt-2">
                 <p>{{ $message }}</p>
             </div>
         @endif
-
         @if ($produtos->count())
             <table class="table table-bordered mt-2">
                 <thead>

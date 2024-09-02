@@ -18,12 +18,13 @@
       <div class="col-3 py-2 mt-4 header-search">
           <form method="GET" action="{{ route('produtos.search') }}" class="form-inline">
               <div class="br-input has-icon">
-                  <input id="query" value="{{ request('query') }}" type="text"
+                  <input id="query" name="query" value="{{ request('query') }}" type="text"
                       placeholder="O que você procura?" />
                   <button class="br-button circle small" type="submit" aria-label="Pesquisar"><i class="fas fa-search"
                           style="color: #000000;" aria-hidden="true"></i>
                   </button>
               </div>
+          </form>
       </div>
 
       @if (Route::has('login'))

@@ -9,6 +9,9 @@
             <img src="/img/banner doro e maguito.svg" alt="Banner de gato" class="w-full" />
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.21/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/0IxzASzf9BGDQJFc/scene.splinecode"></spline-viewer>
+    
     <div class="container py-12">
         000<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             111<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -141,6 +144,8 @@
             </div>
         </div>
     </div> <!-- container -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.21/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/CHbrea8qNsetyDcb/scene.splinecode"></spline-viewer>
     <div class="container" id="categorias">
         <div class="img-fluid">
             <img src="/img/categorias-frame.svg" alt="banner de categoria" />
